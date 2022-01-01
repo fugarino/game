@@ -64,6 +64,12 @@
   right: -42px;
 }
 
+.user,
+.computer {
+  min-width: 30px;
+  text-align: center;
+}
+
 /* Result */
 
 .result {
@@ -92,7 +98,7 @@
   height: 130px;
   margin: 10px;
   border-radius: 100px;
-  border: 3px solid rgb(177, 177, 177);
+  border: 4px solid rgb(177, 177, 177);
   font-size: 5rem;
   display: flex;
   align-items: center;
@@ -116,4 +122,21 @@
 .fa-hand-scissors {
   position: absolute;
   left: 20px;
+}
+
+/* JS */
+
+.green-glow {
+  border: 4px solid #4dcc7d;
+  box-shadow: 0 0 10px #31b43a;
+}
+
+.red-glow {
+  border: 4px solid #fc121b;
+  box-shadow: 0 0 10px #d01115;
+}
+
+.grey-glow {
+  border: 4px solid #464647;
+  box-shadow: 0 0 10px #25292b;
 }

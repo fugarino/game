@@ -1,10 +1,12 @@
 //QuerySelectors
-let user = 0;
-let computer = 0;
-const result = document.querySelector(".results");
-const rock = document.querySelector(".rock");
-const paper = document.querySelector(".paper");
-const scissors = document.querySelector(".scissors");
+let userScore = 0;
+let computerScore = 0;
+const user = document.querySelector(".user");
+const computer = document.querySelector(".computer");
+const result = document.querySelector(".result");
+const rock = document.getElementById("r");
+const paper = document.getElementById("p");
+const scissors = document.getElementById("s");
 
 //Functions
 function getComputerChoice() {
@@ -13,10 +15,71 @@ function getComputerChoice() {
   return choices[randumNumber];
 }
 
+function conversion(letter) {
+  if (letter == "r") {
+    return "Rock";
+  } else if (letter == "p") {
+    return "Paper";
+  } else {
+    return "Scissors";
+  }
+}
+
+function win(userChoice, computerChoice) {
+  userScore++;
+  user.innerHTML = userScore;
+  result.innerHTML = `${conversion(userChoice)} beats ${conversion(
+    computerChoice
+  )}. You Won!`;
+  document.getElementById(userChoice).classList.add("green-glow");
+  setTimeout(function () {
+    document.getElementById(userChoice).classList.remove("green-glow");
+  }, 200);
+}
+function lose(userChoice, computerChoice) {
+  computerScore++;
+  computer.innerHTML = computerScore;
+  result.innerHTML = `${conversion(userChoice)} loses to ${conversion(
+    computerChoice
+  )}. You Lost!`;
+  document.getElementById(userChoice).classList.add("red-glow");
+  setTimeout(function () {
+    document.getElementById(userChoice).classList.remove("red-glow");
+  }, 200);
+}
+function tie(userChoice, computerChoice) {
+  result.innerHTML = `${conversion(userChoice)} equals ${conversion(
+    computerChoice
+  )}. You tied!`;
+  console.log("UserScore: " + userScore);
+  console.log("ComputerScore: " + computerScore);
+  document.getElementById(userChoice).classList.add("grey-glow");
+  setTimeout(function () {
+    document.getElementById(userChoice).classList.remove("grey-glow");
+  }, 200);
+}
+
 function game(userChoice) {
   const computerChoice = getComputerChoice();
-  console.log(userChoice);
-  console.log(computerChoice);
+  console.log("User Choice: " + userChoice);
+  console.log("Computer Choice: " + computerChoice);
+  switch (userChoice + computerChoice) {
+    case "rs":
+    case "pr":
+    case "sp":
+      win(userChoice, computerChoice);
+      break;
+    case "rp":
+    case "ps":
+    case "sr":
+      lose(userChoice, computerChoice);
+      break;
+    case "rr":
+    case "pp":
+    case "ss":
+      tie(userChoice, computerChoice);
+      break;
+  }
 }
 
 function main() {
