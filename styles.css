@@ -1,0 +1,119 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  min-height: 100vh;
+  background: cadetblue;
+}
+
+/* Header */
+
+.header {
+  font-family: "inter", sans-serif;
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  color: #fff;
+}
+
+/* Scoreboard */
+
+.score-board {
+  min-height: 8rem;
+  background: cadetblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score {
+  background: cadetblue;
+  border: 3px solid rgb(211, 129, 129);
+  border-radius: 8px;
+  width: 15rem;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-family: "inter", sans-serif;
+  position: relative;
+  color: #fff;
+}
+
+.user-banner,
+.computer-banner {
+  font-size: 1rem;
+  background: rgb(211, 129, 129);
+  padding: 0 5px;
+  padding-bottom: 2px;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.user-banner {
+  position: absolute;
+  left: -22px;
+}
+
+.computer-banner {
+  position: absolute;
+  right: -42px;
+}
+
+/* Result */
+
+.result {
+  font-family: "inter", sans-serif;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  color: #fff;
+}
+
+/* Choices */
+
+.choices {
+  height: 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rock,
+.paper,
+.scissors {
+  width: 130px;
+  height: 130px;
+  margin: 10px;
+  border-radius: 100px;
+  border: 3px solid rgb(177, 177, 177);
+  font-size: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #fff;
+  cursor: pointer;
+}
+
+.fa-hand-rock {
+  position: absolute;
+  left: 21px;
+}
+
+.fa-hand-paper {
+  position: absolute;
+  left: 26px;
+  top: 21px;
+}
+
+.fa-hand-scissors {
+  position: absolute;
+  left: 20px;
+}
