@@ -11,8 +11,8 @@ const scissors = document.getElementById("s");
 //Functions
 function getComputerChoice() {
   const choices = ["r", "p", "s"];
-  const randumNumber = Math.floor(Math.random() * 3);
-  return choices[randumNumber];
+  const randomNumber = Math.floor(Math.random() * 3);
+  return choices[randomNumber];
 }
 
 function conversion(letter) {
@@ -51,8 +51,6 @@ function tie(userChoice, computerChoice) {
   result.innerHTML = `${conversion(userChoice)} equals ${conversion(
     computerChoice
   )}. You tied!`;
-  console.log("UserScore: " + userScore);
-  console.log("ComputerScore: " + computerScore);
   document.getElementById(userChoice).classList.add("grey-glow");
   setTimeout(function () {
     document.getElementById(userChoice).classList.remove("grey-glow");
@@ -61,8 +59,6 @@ function tie(userChoice, computerChoice) {
 
 function game(userChoice) {
   const computerChoice = getComputerChoice();
-  console.log("User Choice: " + userChoice);
-  console.log("Computer Choice: " + computerChoice);
   switch (userChoice + computerChoice) {
     case "rs":
     case "pr":
