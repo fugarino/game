@@ -15,7 +15,7 @@ function getComputerChoice() {
   return choices[randomNumber];
 }
 
-function conversion(letter) {
+function convert(letter) {
   if (letter == "r") {
     return "Rock";
   } else if (letter == "p") {
@@ -28,7 +28,7 @@ function conversion(letter) {
 function win(userChoice, computerChoice) {
   userScore++;
   user.innerHTML = userScore;
-  result.innerHTML = `${conversion(userChoice)} beats ${conversion(
+  result.innerHTML = `${convert(userChoice)} beats ${convert(
     computerChoice
   )}. You Won!`;
   document.getElementById(userChoice).classList.add("green-glow");
@@ -39,7 +39,7 @@ function win(userChoice, computerChoice) {
 function lose(userChoice, computerChoice) {
   computerScore++;
   computer.innerHTML = computerScore;
-  result.innerHTML = `${conversion(userChoice)} loses to ${conversion(
+  result.innerHTML = `${convert(userChoice)} loses to ${convert(
     computerChoice
   )}. You Lost!`;
   document.getElementById(userChoice).classList.add("red-glow");
@@ -48,9 +48,9 @@ function lose(userChoice, computerChoice) {
   }, 200);
 }
 function tie(userChoice, computerChoice) {
-  result.innerHTML = `${conversion(userChoice)} equals ${conversion(
+  result.innerHTML = `${convert(userChoice)} equals ${convert(
     computerChoice
-  )}. You tied!`;
+  )}. You Tied!`;
   document.getElementById(userChoice).classList.add("grey-glow");
   setTimeout(function () {
     document.getElementById(userChoice).classList.remove("grey-glow");
