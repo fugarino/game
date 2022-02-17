@@ -1,4 +1,4 @@
-//QuerySelectors
+// Selectors
 let userScore = 0;
 let computerScore = 0;
 const user = document.querySelector(".user");
@@ -8,57 +8,65 @@ const rock = document.getElementById("r");
 const paper = document.getElementById("p");
 const scissors = document.getElementById("s");
 
-//Functions
-function getComputerChoice() {
+// Functions
+const getComputerChoice = () => {
   const choices = ["r", "p", "s"];
   const randomNumber = Math.floor(Math.random() * 3);
   return choices[randomNumber];
-}
+};
 
-function convert(letter) {
-  if (letter == "r") {
+const converter = (letter) => {
+  if (letter === "r") {
     return "Rock";
-  } else if (letter == "p") {
+  } else if (letter === "p") {
     return "Paper";
   } else {
     return "Scissors";
   }
-}
+};
 
-function win(userChoice, computerChoice) {
+const win = (userChoice, computerChoice) => {
+  console.log("Won");
   userScore++;
-  user.innerHTML = userScore;
-  result.innerHTML = `${convert(userChoice)} beats ${convert(
+  user.textContent = userScore;
+  result.textContent = `${converter(userChoice)} beats ${converter(
     computerChoice
   )}. You Won!`;
-  document.getElementById(userChoice).classList.add("green-glow");
-  setTimeout(function () {
-    document.getElementById(userChoice).classList.remove("green-glow");
-  }, 200);
-}
-function lose(userChoice, computerChoice) {
+  const userChoiceDiv = document.getElementById(userChoice);
+  userChoiceDiv.classList.add("green-glow");
+  setTimeout(() => {
+    userChoiceDiv.classList.remove("green-glow");
+  }, 300);
+};
+const lose = (userChoice, computerChoice) => {
+  console.log("Lost");
   computerScore++;
-  computer.innerHTML = computerScore;
-  result.innerHTML = `${convert(userChoice)} loses to ${convert(
+  computer.textContent = computerScore;
+  result.textContent = `${converter(userChoice)} loses to ${converter(
     computerChoice
   )}. You Lost!`;
-  document.getElementById(userChoice).classList.add("red-glow");
-  setTimeout(function () {
-    document.getElementById(userChoice).classList.remove("red-glow");
-  }, 200);
-}
-function tie(userChoice, computerChoice) {
-  result.innerHTML = `${convert(userChoice)} equals ${convert(
+  const userChoiceDiv = document.getElementById(userChoice);
+  userChoiceDiv.classList.add("red-glow");
+  setTimeout(() => {
+    userChoiceDiv.classList.remove("red-glow");
+  }, 300);
+};
+const tie = (userChoice, computerChoice) => {
+  console.log("Tie");
+  result.textContent = `${converter(userChoice)} equals to ${converter(
     computerChoice
   )}. You Tied!`;
-  document.getElementById(userChoice).classList.add("grey-glow");
-  setTimeout(function () {
-    document.getElementById(userChoice).classList.remove("grey-glow");
-  }, 200);
-}
+  const userChoiceDiv = document.getElementById(userChoice);
+  userChoiceDiv.classList.add("grey-glow");
+  setTimeout(() => {
+    userChoiceDiv.classList.remove("grey-glow");
+  }, 300);
+};
 
-function game(userChoice) {
+const getUserChoice = (userChoice) => {
   const computerChoice = getComputerChoice();
+  console.log(userChoice);
+  console.log(computerChoice);
   switch (userChoice + computerChoice) {
     case "rs":
     case "pr":
@@ -76,17 +84,15 @@ function game(userChoice) {
       tie(userChoice, computerChoice);
       break;
   }
-}
+};
 
-function main() {
-  rock.addEventListener("click", () => {
-    game("r");
-  });
-  paper.addEventListener("click", () => {
-    game("p");
-  });
-  scissors.addEventListener("click", () => {
-    game("s");
-  });
-}
-main();
+// EventListeners
+rock.addEventListener("click", () => {
+  getUserChoice("r");
+});
+paper.addEventListener("click", () => {
+  getUserChoice("p");
+});
+scissors.addEventListener("click", () => {
+  getUserChoice("s");
+});
